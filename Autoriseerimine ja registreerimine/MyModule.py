@@ -3,8 +3,8 @@ from random import choice
 # Создаю пустые списки логинов и паролей
 logins = []
 passwords = []
-# функция случайного пароля
-def salasona(k: int):
+
+def salasona(k: int):   # функция случайного пароля
   sala=""
   for i in range(k):
    t=choice(string.ascii_letters) #Aa...Zz
@@ -12,9 +12,9 @@ def salasona(k: int):
    t_num=[t,str(num)]
    sala+=choice(t_num)
   return sala
-# функция регистрации пользователя
+
 def register():
-    login = input("Sisesta oma login: ")
+    login = input("Sisesta oma login: ")   # функция регистрации пользователя
     if login in logins:
         print("See login on juba votud.")
         return
@@ -32,22 +32,22 @@ def register():
     logins.append(login)
     passwords.append(password)
     print("Registreerimine õnnetus!")
-# функция авторизации пользователя
+
 def authorize():
     login = input("Sisesta oma login: ")
     if login not in logins:
-        print("See logini pole registreeritud.")
+        print("See logini pole registreeritud.")   # функция авторизации пользователя
         return
     password = input("Sisesta oma salasõna: ")
     if password != passwords[logins.index(login)]:
         print("Vale salasõna.")
         return
     print("Login õnnetus!")
-# функция смены имени или пароля
+
 def change():
     login = input("Sisesta oma login: ")
     if login not in logins:
-        print("See nimi ei ole registreeritud.")
+        print("See nimi ei ole registreeritud.")# функция смены имени или пароля
         return
     valik = input("Kas soovite muuta oma nime või parooli? (login/password): ")
     if valik.lower() == 'login':
@@ -68,9 +68,9 @@ def change():
         print("Salasone muudatus õnnetus.")
     else:
         print("Viga.")
-# функция восстановления пароля
+
 def forgotpassword():
-    login = input("Наберите логин: ")
+    login = input("Наберите логин: ")   # функция восстановления пароля
     if login not in logins:
         print("Вы не зарегистрированы.")
         return
