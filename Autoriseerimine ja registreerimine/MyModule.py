@@ -2,12 +2,12 @@
 from random import choice
 
 # luua tühjad nimekirjad login ja paroolid
-# создавать пустые списки логинов и паролей
+# Создаю пустые списки логинов и паролей
 logins = []
 passwords = []
 
 # funktsioon juhusliku parooli genereerimiseks
-# функция генерации случайного пароля
+# функция случайного пароля
 def salasona(k: int):
   sala=""
   for i in range(k):
@@ -24,13 +24,13 @@ def register():
     if login in logins:
         print("See login on juba votud.")
         return
-    salasona_valik = input("Kas sa tahad juhuslik salasone? (Y/N): ")
-    if salasona_valik.lower() == 'y':
-        password = salasona(8)
-        print(f"Sinu salasona: {password}")
+    salasõna_valik = input("Kas sa tahad juhuslik salasõne? (Y/N): ")
+    if salasõna_valik.lower() == 'y':
+        password = salasõna(8)
+        print(f"Sinu salasõna: {password}")
     else:
         while True:
-            password = input("Sisesta oma salasona: ")
+            password = input("Sisesta salasona: ")
             if any(char.isdigit() for char in password) and any(char.islower() for char in password) and any(char.isupper() for char in password) and any(char in string.punctuation for char in password):
                 break
             else:
@@ -46,9 +46,9 @@ def authorize():
     if login not in logins:
         print("See logini pole registreeritud.")
         return
-    password = input("Sisesta oma salasona: ")
+    password = input("Sisesta oma salasõna: ")
     if password != passwords[logins.index(login)]:
-        print("Vale salasona.")
+        print("Vale salasõna.")
         return
     print("Login õnnetus!")
 
@@ -80,13 +80,13 @@ def change():
         print("Viga.")
 
 # funktsioon unustatud parooli taastamiseks
-# функция восстановления забытого пароля
+# функция восстановления пароля
 def forgotpassword():
-    login = input("Наберите свой логин: ")
+    login = input("Наберите логин: ")
     if login not in logins:
         print("Вы не зарегистрированы.")
         return
-    new_password = salasona(8)
+    new_password = salasõna(8)
     passwords[logins.index(login)] = new_password
     print(f"Sinu uus parool on: {new_password}")
 
