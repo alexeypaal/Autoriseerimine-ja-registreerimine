@@ -19,7 +19,7 @@ def register():
         print("See login on juba votud.")
         return
     salasõna_valik = input("Kas sa tahad juhuslik salasõne? (Y/N): ")
-    if salasõna_valik.lower() == 'y':
+    if salasõna_valik.lower() == 'y': # В строке if valik.lower() == 'login': оператор lower() вызывается для преобразования введенного пользователем значения в нижний регистр, чтобы сравнивать его с нижним регистром строки 'login'. 
         password = salasõna(8)
         print(f"Sinu salasõna: {password}")
     else:
